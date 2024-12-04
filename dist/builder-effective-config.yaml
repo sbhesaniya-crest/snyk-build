@@ -1,0 +1,28 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.example.myelectronapp
+productName: MyElectronApp
+files:
+  - filter:
+      - main.js
+      - package.json
+      - node_modules/**/*
+      - assets/**/*
+mac:
+  target:
+    - dmg
+    - zip
+  hardenedRuntime: true
+  category: public.app-category.utilities
+win:
+  target:
+    - nsis
+    - zip
+linux:
+  target:
+    - AppImage
+    - deb
+    - rpm
+  category: Utility
+electronVersion: 33.2.0

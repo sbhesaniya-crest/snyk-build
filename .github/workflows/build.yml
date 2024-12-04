@@ -37,9 +37,10 @@ jobs:
         run: npm run build
 
       # Step 5: Upload build artifacts
-      - name: Archive app
+      - name: Upload build artifacts
         if: success()
         uses: actions/upload-artifact@v4
         with:
           name: electron-build-${{ matrix.os }}
           path: dist/
+          retention-days: 7  # Optional: Retain artifacts for 7 days
