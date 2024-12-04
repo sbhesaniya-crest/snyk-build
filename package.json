@@ -4,11 +4,14 @@
   "description": "Electron setup",
   "main": "main.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "build": "electron-builder",
-    "dist": "electron-builder --mac --win --linux"
+    "build": "electron-builder"
   },
-  "author": "Sandip Bhesaniya",
+  "author": {
+    "name": "Sandip Bhesaniya",
+    "email": "sandip@example.com"
+  },
   "license": "MIT",
   "devDependencies": {
     "electron": "^33.2.0",
@@ -21,25 +24,33 @@
     "appId": "com.example.myelectronapp",
     "productName": "MyElectronApp",
     "files": [
+      "dist/",
       "main.js",
-      "package.json",
-      "node_modules/**/*",
-      "assets/**/*"
+      "node_modules/"
     ],
     "directories": {
       "buildResources": "build"
     },
-    "mac": {
-      "target": ["dmg", "zip"],
-      "hardenedRuntime": true,
-      "category": "public.app-category.utilities"
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "maintainer": "Sandip Bhesaniya <sandip@example.com>",
+      "category": "Utility"
     },
     "win": {
-      "target": ["nsis", "zip"]
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icon.ico"
     },
-    "linux": {
-      "target": ["AppImage", "deb", "rpm"],
-      "category": "Utility"
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "icon": "build/icon.icns"
     }
   }
 }
