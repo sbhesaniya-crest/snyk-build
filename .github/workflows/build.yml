@@ -32,6 +32,8 @@ jobs:
 
       # Step 4: Build the Electron app
       - name: Build the app
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: npm run build
 
       # Step 5: Upload build artifacts
